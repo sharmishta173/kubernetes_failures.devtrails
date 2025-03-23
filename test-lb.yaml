@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-lb
+  namespace: default
+spec:
+  selector:
+    app: flask-app  # Change this to match your deployment's labels
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000  # Change this if your Flask app uses a different port
